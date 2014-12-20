@@ -11,7 +11,7 @@ Install [JDK and Maven](site.yml) using existing Ansible modules
     ansible-galaxy install https://github.com/silpion/ansible-maven.git
 
 
-```
+``` yaml
 - hosts: localhost
 
   roles:
