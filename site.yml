@@ -1,0 +1,11 @@
+# Install JDK and Maven
+
+- hosts: localhost
+
+  roles:
+    - { role: ansible-maven }
+    - { role: geerlingguy.java }
+
+  vars:
+    java_packages:
+      - java-1.7.0-openjdk

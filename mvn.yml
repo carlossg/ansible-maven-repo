@@ -1,0 +1,16 @@
+# Download artifacts from Maven repositories
+
+- hosts: localhost
+
+  vars:
+    mvn_artifacts:
+      - id: org.apache.maven:maven-core:2.2.1:jar:sources
+        dest: /tmp/test.jar
+        # params: -U # update snapshots
+        # repos:
+          # - http://repo1.maven.apache.org/maven2
+      
+  tasks:
+    - name: copy maven artifacts
+      command: mvn {{ item.params | default('') }} org.apache.maven.plugins:maven-dependency-plugin:get -Dartifact={{ item.id }} -Ddest={{ item.dest }} -Dtransitive=false -Pansible-maven -DremoteRepositories={{ item.repos | default(['http://repo1.maven.apache.org/maven2']) | join(",") }}
+      with_items: mvn_artifacts
