@@ -44,6 +44,10 @@ From [mvn.yml](mvn.yml), download any number of Maven artifacts optionally from 
       with_items: mvn_artifacts
 ```
 
+# Docker
+
+An image with Ansible, JDK and Maven preinstalled is available at
+[`csanchez/ansible-maven`](https://registry.hub.docker.com/u/csanchez/ansible-maven/).
 
 # Building Docker image
 
